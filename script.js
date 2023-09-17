@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', init, false);
 //draw a grid with that size
 //call main
 function init(){
+
+    //when erase button is selected, regenerate grid like new
+    let erase = document.querySelector('#eraseButton');
+    erase.addEventListener('click', main);
+
     slider = document.querySelector('#slider');
     gridSize = slider.value; //get default value for rangeSlider
     gridSizeShown = document.querySelector('.rangeSlider, .value');
@@ -52,9 +57,6 @@ function createNewGrid() {
             document.querySelector('.container.sketchboxes').appendChild(div);
         }
     }
-
-    console.log(gridSize);
-
 }
 
 function addDivListeners(){
