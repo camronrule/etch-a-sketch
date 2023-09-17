@@ -30,6 +30,32 @@ body {
     align-items: center;
 }
 
+button {
+    border: none;
+    border-radius: 8px;
+    background-color:darkcyan;
+    color: aliceblue;
+    font-weight:600;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    transition: transform 0.1s ease-in-out;
+}
+
+
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#eraseButton:hover {
+    outline: 3px solid #b1fcfb;
+}
+
+button:not(#eraseButton):focus{
+    outline: 3px solid #b1fcfb;
+}
+
 #slider {
     -webkit-appearance: none;
     appearance: none;
