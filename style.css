@@ -22,7 +22,7 @@ body {
     width: 250px;
 }
 .sidebar {
-    height: 450px;
+    height: 350px;
     border: 5px solid darkcyan;
     background-color: aliceblue;
     display: flex;
@@ -30,6 +30,17 @@ body {
     justify-content: space-around;
     align-items: center;
     box-shadow: 1px 1px 1px 1px#b1fcfb;
+    gap: 18px;
+    padding:18px;
+}
+
+.sidebar > .invisible {
+    flex: auto;
+}
+
+.text {
+    font-size: 18px;
+    font-weight: 300;
 }
 
 button {
@@ -110,10 +121,9 @@ input[type='color'] {
   
 .colorpicker {
     overflow: hidden;
-    width: 2em;
-    height: 2em;
+    width: 3em;
+    height: 3em;
     /* optional formatting below here */
     border-radius: 50%;
     box-shadow: 1px 1px 3px 0px grey;
-    margin: 1em;
   }
