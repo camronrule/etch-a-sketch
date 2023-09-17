@@ -3,6 +3,7 @@ let gridSize; //number of boxes in each dimension, 1x1 to 64x64
 let slider; 
 let gridSizeShown;
 let divColor = '#000000' //default - black
+let rainbowMode = false;
 
 //wait until page has loaded to set up listeners
 document.addEventListener('DOMContentLoaded', init, false);
@@ -24,10 +25,6 @@ function init(){
     color.addEventListener('input', (e) => {
         divColor = e.target.value;
     }, false);
-
-    //when 'rainbow mode' is selected, the user will 
-    //draw a random color when hovering over a box
-    //let rainbow = document.querySelector('')
 
     slider = document.querySelector('#slider');
     gridSize = slider.value; //get default value for rangeSlider
@@ -75,6 +72,31 @@ function createNewGrid() {
 function addDivListeners(){
     let divs = document.querySelectorAll('.container.sketchboxes > div');
     divs.forEach(div => div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = divColor;
+        if (!rainbowMode){
+            div.style.backgroundColor = divColor;
+        }
+        else{
+            div.style.backgroundColor = randomColor();
+        }
     }))
+}
+
+//picks a random color for rainbow mode
+function randomColor(){
+    return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+}
+
+
+function toggleRainbow(){
+    let rainbowbtn = document.querySelector('#rainbowbutton');
+    console.log("RAINBOW TOGGLED");
+    if (rainbowMode){
+        rainbowMode = false;
+        divColor = '#000000';
+        rainbowbtn.classList.remove('active');
+    }
+    else {
+        rainbowMode = true;
+        rainbowbtn.classList.add('active');
+    }
 }
