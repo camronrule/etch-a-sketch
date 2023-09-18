@@ -19,7 +19,7 @@ body {
 }
 
 .sidebar, .invisibleplaceholder {
-    width: 250px;
+    width: 225px;
 }
 .sidebar {
     height: 350px;
@@ -59,17 +59,14 @@ button:hover {
     transform: scale(1.1);
 }
 
-#eraseButton:hover {
-    outline: 3px solid #b1fcfb;
-}
-
-button:not(#eraseButton):focus{
-    outline: 3px solid #b1fcfb;
+#clearButton:hover {
+    outline: 4px solid #b1fcfb;
 }
 
 .active {
     transform: scale(1.1);
-    outline: 3px solid #b1fcfb;
+    outline: 4px solid #b1fcfb;
+    box-shadow: 2px 2px 2px 2px#b1fcfb;
 }
 
 #slider {

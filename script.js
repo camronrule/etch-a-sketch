@@ -4,6 +4,7 @@ let slider;
 let gridSizeShown;
 let divColor = '#000000' //default - black
 let rainbowMode = false;
+let eraserMode = false;
 
 //wait until page has loaded to set up listeners
 document.addEventListener('DOMContentLoaded', init, false);
@@ -15,9 +16,9 @@ document.addEventListener('DOMContentLoaded', init, false);
 //call main
 function init(){
 
-    //when erase button is selected, regenerate grid like new
-    let erase = document.querySelector('#eraseButton');
-    erase.addEventListener('click', main);
+    //when clear button is selected, regenerate grid like new
+    let clear = document.querySelector('#clearButton');
+    clear.addEventListener('click', main);
 
     //when color input is selected, change the color the divs are filled with
     let color = document.querySelector('#colorpicker');
@@ -72,11 +73,14 @@ function createNewGrid() {
 function addDivListeners(){
     let divs = document.querySelectorAll('.container.sketchboxes > div');
     divs.forEach(div => div.addEventListener('mouseover', () => {
-        if (!rainbowMode){
-            div.style.backgroundColor = divColor;
-        }
-        else{
+        if (rainbowMode){
             div.style.backgroundColor = randomColor();
+        }
+        else if (eraserMode) {
+            div.style.backgroundColor = '#e5e9ec';
+        }
+        else {
+            div.style.backgroundColor = divColor;
         }
     }))
 }
@@ -89,14 +93,27 @@ function randomColor(){
 
 function toggleRainbow(){
     let rainbowbtn = document.querySelector('#rainbowbutton');
-    console.log("RAINBOW TOGGLED");
     if (rainbowMode){
         rainbowMode = false;
         divColor = '#000000';
         rainbowbtn.classList.remove('active');
     }
     else {
+        if (eraserMode) { toggleEraser(); }
         rainbowMode = true;
         rainbowbtn.classList.add('active');
+    }
+}
+
+function toggleEraser(){
+    let eraserbtn = document.querySelector('#eraserbutton');
+    if (eraserMode){
+        eraserMode = false;
+        eraserbtn.classList.remove('active');
+    }
+    else {
+        if (rainbowMode) { toggleRainbow(); }
+        eraserMode = true;
+        eraserbtn.classList.add('active');
     }
 }
