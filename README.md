@@ -15,4 +15,4 @@ Includes:
 - An erase function
 - Multiple choices of grid size, from 1x1 to 64x64
 
-[Live app] {https://camronrule.github.io/etch-a-sketch/}
+[Live app](https://camronrule.github.io/etch-a-sketch/)
